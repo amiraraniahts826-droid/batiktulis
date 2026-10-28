@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Batik Tulis Much.Salam | Katalog Koleksi Batik Tulis</title>
+    <meta name="description" content="Profil brand dan katalog koleksi batik tulis Batik Tulis Much.Salam.">
+
+    <!-- Bootstrap 5 + font (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="progress" aria-hidden="true"></div>
+
+    <!-- A. NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-batik" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Batik Tulis Much.Salam</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Buka menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#koleksi">Koleksi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#QnA">Q&A</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- B. HERO (latar cokelat tua, foto berbingkai lengkung) -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7 reveal">
+                        <h1>Setiap Goresan, <em>Menyimpan Warisan.</em></h1>
+                        <p class="lead">Batik Tulis Much.Salam menghadirkan karya batik tulis yang menjaga keindahan
+                            motif dan nilai tradisi dalam setiap lembar kainnya.</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="#koleksi" class="btn btn-emas">Jelajahi Koleksi</a>
+                            <a href="#tentang" class="btn btn-garis-terang">Tentang Kami</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 reveal">
+                        <!-- Ganti images/hero.jpg dengan foto batik tulis Anda -->
+                        <div class="bingkai foto-lengkung">
+                            <img src="images/hero.jpg" alt="Kain batik tulis Batik Tulis Much.Salam"
+                                onerror="this.remove()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="pita" aria-hidden="true"></div>
+
+        <!-- C. TENTANG KAMI (tata letak editorial) -->
+        <section id="tentang" class="section">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-5 reveal">
+                        <div class="tentang-foto">
+                            <div class="bingkai foto-tentang">
+                                <img src="images/tentang.jpg" alt="Koleksi kain batik tulis" loading="lazy"
+                                    onerror="this.remove()">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 reveal">
+                        <h2 class="judul">Tentang Kami</h2>
+                        <p>Batik Tulis Much.Salam adalah brand batik tulis yang menampilkan keindahan motif Nusantara
+                            dalam kain yang dikerjakan dengan tangan.</p>
+                        <blockquote class="kutipan-brand">Setiap motif membawa makna dan cerita.</blockquote>
+                        <p>Melalui koleksi kami, batik tidak hanya dikenakan, tetapi juga dikenal dan dihargai sebagai
+                            bagian dari budaya Indonesia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- D. KATALOG KOLEKSI -->
+        <section id="koleksi" class="section section-krem2">
+            <div class="container">
+                <div class="text-center reveal">
+                    <h2 class="judul">Katalog Koleksi</h2>
+                    <p class="sub">Pilih kategori untuk melihat koleksi motif batik tulis kami.</p>
+                </div>
+
+                <!-- Rentang harga seluruh toko (bukan harga per produk). Ubah angka di sini jika berubah.
+         Angka di data-target dipakai animasi hitung naik; teks di dalam tag adalah cadangannya. -->
+                <div class="harga reveal">
+                    <p class="harga-label">Harga mulai dari</p>
+                    <p class="harga-angka"><b id="hargaMin" data-target="270000">Rp270.000</b> <span>hingga</span> <b
+                            id="hargaMax" data-target="500000">Rp500.000</b></p>
+                    <div class="harga-rel" aria-hidden="true"><i></i></div>
+                    <p class="harga-ket">Rentang harga seluruh koleksi di toko ini.</p>
+                </div>
+
+                <!-- Filter: nilai data-filter harus sama dengan data-kategori pada kartu -->
+                <div id="filter" class="filter-bar" role="group" aria-label="Filter kategori koleksi">
+                    <button class="filter-btn aktif" data-filter="Semua" aria-pressed="true">Semua</button>
+                    <button class="filter-btn" data-filter="Klasik" aria-pressed="false">Klasik</button>
+                    <button class="filter-btn" data-filter="Geometris" aria-pressed="false">Geometris</button>
+                    <button class="filter-btn" data-filter="Alam" aria-pressed="false">Alam</button>
+                </div>
+                <p class="jumlah" aria-live="polite">Menampilkan <strong id="jumlah">9</strong> koleksi</p>
+
+                <!-- Daftar koleksi. Salin satu blok "kartu-item" untuk menambah koleksi (nomor otomatis). -->
+                <div id="katalog" class="row g-4 g-lg-5">
+
+                    <div class="col-sm-6 col-lg-4 kartu-item reveal" data-kategori="Alam">
+                        <article class="kartu">
+                            <div class="bingkai foto-kartu"><span class="nomor-kartu"></span>
+                                <img src="images/daun.jpeg" alt="Kain batik tulis motif daun" loading="lazy"
+                                    onerror="this.remove()">
+                            </div>
+                            <div class="kartu-isi">
+                                <h3>Koleksi Daun</h3>
+                                <p class="motif">Motif Daun &middot; Alam</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4 kartu-item reveal" data-kategori="Klasik">
+                        <article class="kartu">
+                            <div class="bingkai foto-kartu"><span class="nomor-kartu"></span>
+                                <img src="images/udang bandeng mega.jpeg"
+                                    alt="Kain batik tulis motif Udang Bandeng Mega" loading="lazy"
+                                    onerror="this.remove()">
+                            </div>
+                            <div class="kartu-isi">
+                                <h3>Koleksi Udang Bandeng</h3>
+                                <p class="motif">Motif Udang Bandeng Mega &middot; Klasik</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4 kartu-item reveal" data-kategori="Klasik">
+                        <article class="kartu">
+                            <div class="bingkai foto-kartu"><span class="nomor-kartu"></span>
+                                <img src="images/semanggi.jpeg" alt="Kain batik tulis motif Semanggi" loading="lazy"
+                                    onerror="this.remove()">
+                            </div>
+                            <div class="kartu-isi">
+                                <h3>Koleksi
+                                    Semanggi
+                                </h3>
+                                <p class="motif">Motif Semanggi &middot; Klasik</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4 kartu-item reveal" data-kategori="Alam">
+                        <article class="kartu">
+                            <div class="bingkai foto-kartu"><span class="nomor-kartu"></span>
+                                <img src="images/Koleksi Nanas Cipret.jpg" alt="Kain batik tulis motif Nanas Cipret"
+                                    loading="lazy" onerror="this.remove()">
+                            </div>
+                            <div class="kartu-isi">
+                                <h3>Koleksi Nanas Cipret</h3>
+                                <p class="motif">Motif Nanas Cipret &middot; Alam</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4 kartu-item reveal" data-kategori="Alam">
+                        <article class="kartu">
+                            <div class="bingkai foto-kartu"><span class="nomor-kartu"></span>
+                                <img src="images/Koleksi Alang-Alang.jpg" alt="Kain batik tulis motif Alang-Alang"
+                                    loading="lazy" onerror="this.remove()">
+                            </div>
+                            <div class="kartu-isi">
+                                <h3>Koleksi Alang-Alang</h3>
+                                <p class="motif">Motif Alang-Alang &middot; Alam</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4 kartu-item reveal" data-kategori="Klasik">
+                        <article class="kartu">
+                            <div class="bingkai foto-kartu"><span class="nomor-kartu"></span>
+                                <img src="images/Koleksi Liris Biku.jpg" alt="Kain batik tulis motif Liris Biku"
+                                    loading="lazy" onerror="this.remove()">
+                            </div>
+                            <div class="kartu-isi">
+                                <h3>Koleksi Liris Biku</h3>
+                                <p class="motif">Motif Liris Biku &middot; Klasik</p>
+                            </div>
+                        </article>
+                    </div>
+
+
+                    <!-- Koleksi Beras Utah -->
+                    <div class="col-sm-6 col-lg-4 kartu-item reveal" data-kategori="Alam">
+                        <article class="kartu">
+                            <div class="bingkai foto-kartu">
+                                <span class="nomor-kartu"></span>
+                                <img src="images/Koleksi Beras Utah.jpg" alt="Kain batik tulis motif Beras Utah"
+                                    loading="lazy" onerror="this.remove()">
+                            </div>
+                            <div class="kartu-isi">
+                                <h3>Koleksi Beras Utah</h3>
+                                <p class="motif">Motif Beras Utah &middot; Alam</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Koleksi Kembang Pecah Beling -->
+                    <div class="col-sm-6 col-lg-4 kartu-item reveal" data-kategori="Alam">
+                        <article class="kartu">
+                            <div class="bingkai foto-kartu">
+                                <span class="nomor-kartu"></span>
+                                <img src="images/Koleksi Kembang Pecah Beling.jpg"
+                                    alt="Kain batik tulis motif Kembang Pecah Beling" loading="lazy"
+                                    onerror="this.remove()">
+                            </div>
+                            <div class="kartu-isi">
+                                <h3>Koleksi Kembang Pecah Beling</h3>
+                                <p class="motif">Motif Kembang Pecah Beling &middot; Alam</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Koleksi Bayem -->
+                    <div class="col-sm-6 col-lg-4 kartu-item reveal" data-kategori="Alam">
+                        <article class="kartu">
+                            <div class="bingkai foto-kartu">
+                                <span class="nomor-kartu"></span>
+                                <img src="images/Koleksi Bayem.jpg" alt="Kain batik tulis motif Bayem" loading="lazy"
+                                    onerror="this.remove()">
+                            </div>
+                            <div class="kartu-isi">
+                                <h3>Koleksi Bayem</h3>
+                                <p class="motif">Motif Bayem &middot; Alam</p>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- E. Q&A -->
+        <section id="testimoni" class="section">
+            <div class="container">
+
+                <div class="text-center reveal">
+                    <h2 class="judul">Q&A Seputar Batik</h2>
+                    <p class="sub">
+                        Temukan jawaban atas pertanyaan seputar pemesanan
+                        Batik Tulis Much.Salam.
+                    </p>
+                </div>
+
+                <div class="testimoni-carousel reveal" aria-label="Pertanyaan dan jawaban seputar batik">
+
+                    <div class="testimoni-viewport">
+                        <div class="testimoni-track">
+
+                            <!-- Q&A 1 -->
+                            <article class="testimoni-card">
+                                <span class="testimoni-kutipan" aria-hidden="true"></span>
+
+                                <h3>Apakah bisa memesan motif di luar katalog?</h3>
+
+                                <p class="testimoni-komentar">
+                                    Bisa. Kamu dapat berkonsultasi terlebih
+                                    dahulu melalui chat WhatsApp untuk
+                                    mendiskusikan motif yang diinginkan.
+                                </p>
+                            </article>
+
+                            <!-- Q&A 2 -->
+                            <article class="testimoni-card">
+                                <span class="testimoni-kutipan" aria-hidden="true"></span>
+
+                                <h3>Apakah bisa konsultasi sebelum memesan?</h3>
+
+                                <p class="testimoni-komentar">
+                                    Tentu. Kamu bisa menghubungi kami melalui
+                                    WhatsApp untuk bertanya mengenai motif,
+                                    pilihan koleksi, dan kebutuhan pesanan.
+                                </p>
+                            </article>
+
+                            <!-- Q&A 3 -->
+                            <article class="testimoni-card">
+                                <span class="testimoni-kutipan" aria-hidden="true"></span>
+
+                                <h3>Apakah melayani pesanan instansi?</h3>
+
+                                <p class="testimoni-komentar">
+                                    Untuk kebutuhan instansi maupun acara
+                                    khusus, silakan hubungi kami untuk
+                                    mendiskusikan detail pesanan.
+                                </p>
+                            </article>
+
+                            <!-- Q&A 4 -->
+                            <article class="testimoni-card">
+                                <span class="testimoni-kutipan" aria-hidden="true"></span>
+
+                                <h3>Bagaimana cara mengetahui harga batik?</h3>
+
+                                <p class="testimoni-komentar">
+                                    Harga koleksi berkisar mulai dari
+                                    Rp270.000 hingga Rp500.000. Untuk
+                                    informasi harga koleksi tertentu,
+                                    silakan hubungi kami melalui WhatsApp.
+                                </p>
+                            </article>
+
+                        </div>
+                    </div>
+
+                    <!-- Navigasi Q&A -->
+                    <div class="testimoni-navigasi">
+                        <button class="testimoni-panah testimoni-prev" type="button" aria-label="Pertanyaan sebelumnya">
+                            &#8592;
+                        </button>
+
+                        <div class="testimoni-dots" aria-label="Pilih pertanyaan">
+                        </div>
+
+                        <button class="testimoni-panah testimoni-next" type="button" aria-label="Pertanyaan berikutnya">
+                            &#8594;
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- F. CTA PENUTUP -->
+        <section id="kontak" class="cta">
+            <div class="container reveal">
+                <div class="cta-kotak text-center">
+                    <h2>Lestarikan Warisan, Kenakan Keindahan.</h2>
+                    <p>Kenali koleksi Batik Tulis Much.Salam dan temukan motif yang sesuai dengan kebutuhan Anda.
+                    </p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="#koleksi" class="btn btn-emas">Lihat Koleksi</a>
+                        <a href="https://wa.me/62 856-5550-1205" class="btn btn-garis-terang" target="_blank"
+                            rel="noopener">Hubungi Kami</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- G. FOOTER -->
+    <div class="pita" aria-hidden="true"></div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <h3>Batik Tulis Much.Salam</h3>
+                    <p>Profil brand dan katalog koleksi batik tulis dengan motif Nusantara.</p>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <h4>Navigasi</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#tentang">Tentang Kami</a></li>
+                        <li><a href="#koleksi">Koleksi</a></li>
+                        <li><a href="#QnA">Q&A</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-4">
+                    <h4>Kontak</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            Alamat: 
+                            Jl. Patar Lor Ngaresrejo No.20, RT.11/RW.02, Ngares, Ngaresrejo, 
+                            Kec. Sukodono, Kabupaten Sidoarjo, Jawa Timur 61258</li>
+                        <li>WhatsApp: 62 856-5550-1205</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copy">&copy; <span id="tahun">2026</span> Batik Tulis Much.Salam. Hak cipta dilindungi.</p>
+        </div>
+    </footer>
+
+    <button id="atas" aria-label="Kembali ke atas">&uarr;</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
